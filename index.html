@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laura Lacort Zimermann — Currículo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f9f7f4;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #2a5c45;
+      --line: #e0dbd4;
+      --tag-bg: #eef3f0;
+      --tag-text: #2a5c45;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 60px 20px;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 36px;
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    header .title {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contacts a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contacts a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* SOBRE */
+    .sobre p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    /* EXPERIENCIA */
+    .job {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 28px;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .job:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-period {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+
+    .job-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .job-content .company {
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .job-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job-content ul li {
+      font-size: 0.9rem;
+      color: #444;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .job-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--line);
+    }
+
+    /* PROJETOS */
+    .project {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .project p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    .project .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* FORMAÇÃO */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 28px;
+      margin-bottom: 20px;
+    }
+
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-period {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-top: 3px;
+    }
+
+    .edu-content h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .edu-content p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* HABILIDADES */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: #555;
+      font-size: 0.82rem;
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+
+    /* IDIOMAS */
+    .lang-list {
+      display: flex;
+      gap: 32px;
+    }
+
+    .lang-item h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .lang-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 580px) {
+      header h1 { font-size: 2rem; }
+      .job, .edu-item { grid-template-columns: 1fr; }
+      .job-period, .edu-period { margin-bottom: 6px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Laura Lacort<br>Zimermann</h1>
+    <div class="title">Cientista da Computação</div>
+    <div class="contacts">
+      <a href="mailto:lauralacortzimermann@gmail.com">lauralacortzimermann@gmail.com</a>
+      <a href="https://linkedin.com/in/laurazimrn" target="_blank">linkedin.com/in/laurazimrn</a>
+      <a href="https://github.com/laurazimrn" target="_blank">github.com/laurazimrn</a>
+    </div>
+  </header>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="section-label">Sobre</div>
+    <p>Pós-graduada em Engenharia de Software e Bacharel em Ciência da Computação, com experiência prática em desenvolvimento Front-End e modelagem de banco de dados. Em transição para as áreas de Dados e Back-End.</p>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section>
+    <div class="section-label">Experiência</div>
+
+    <div class="job">
+      <div class="job-period">Jan 2024<br>Atual</div>
+      <div class="job-content">
+        <h3>Desenvolvedora No Code</h3>
+        <div class="company">IMMA Experiências</div>
+        <ul>
+          <li>Desenvolvimento de aplicações web completas utilizando Bubble.io, com foco em modelagem de banco de dados relacional e definição de estruturas de dados</li>
+          <li>Aplicação de regras de negócio e integridade referencial no design do banco de dados</li>
+          <li>Integração com APIs REST externas e construção de fluxos de automação</li>
+          <li>Entrega de interfaces responsivas alinhadas a requisitos funcionais</li>
+          <li>Atuação em ciclo completo de desenvolvimento: levantamento de requisitos, modelagem, implementação e testes</li>
+          <li>Uso diário de Jira para acompanhamento de demandas e projetos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">Jan 2023<br>Set 2023</div>
+      <div class="job-content">
+        <h3>Desenvolvedora Front End</h3>
+        <div class="company">Agência Sete Digital</div>
+        <ul>
+          <li>Desenvolvimento de interfaces web responsivas com HTML, CSS e JavaScript</li>
+          <li>Consumo de bibliotecas de componentes UI: Material UI, Tailwind CSS e Bootstrap</li>
+          <li>Depuração e correção de bugs em ambiente de produção</li>
+          <li>Colaboração com equipe em ambiente ágil e versionamento com Git/GitHub</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">Jan 2022<br>Abr 2022</div>
+      <div class="job-content">
+        <h3>Desenvolvedora Web</h3>
+        <div class="company">Eficaz Marketing</div>
+        <ul>
+          <li>Criação e manutenção de componentes reutilizáveis para interfaces web</li>
+          <li>Implementação de layouts responsivos seguindo padrões de UI/UX</li>
+          <li>Versionamento de código com Git/GitHub</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">Abr 2021<br>Jan 2022</div>
+      <div class="job-content">
+        <h3>Estágio Front End</h3>
+        <div class="company">Eficaz Marketing</div>
+        <ul>
+          <li>Desenvolvimento de interfaces web com HTML, CSS e JavaScript</li>
+          <li>Manutenção de sites e aplicativos</li>
+          <li>Versionamento de código com Git/GitHub</li>
+          <li>Primeira experiência prática com desenvolvimento web em ambiente profissional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section>
+    <div class="section-label">Projetos</div>
+
+    <div class="project">
+      <h3>Local AI Agent com Ollama & LangChain</h3>
+      <p>Agente de IA local em Python com LangChain para orquestração de LLMs e Ollama para execução offline. Implementa banco de dados vetorial com ChromaDB (RAG), processa arquivos CSV e realiza raciocínio contextual sem APIs externas.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">ChromaDB</span>
+        <span class="tag">RAG</span>
+        <span class="tag">LLM</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Notes API with AI</h3>
+      <p>API RESTful com FastAPI e SQLAlchemy ORM integrando Ollama (llama3) para sumarização inteligente de notas. CRUD completo, validação com Pydantic v2 e testes automatizados com Pytest.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">Pytest</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>FastAPI App with PostgreSQL</h3>
+      <p>Aplicação de quiz com FastAPI, PostgreSQL e SQLAlchemy. Modelagem relacional de tabelas, setup de conexão, inicialização via script e documentação interativa de endpoints.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">ORM</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Django REST API</h3>
+      <p>API RESTful em Python com Django REST Framework, arquitetura modular e escalável. Banco SQLite com configuração para migração a PostgreSQL.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">Django REST Framework</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">PostgreSQL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section>
+    <div class="section-label">Formação</div>
+
+    <div class="edu-item">
+      <div class="edu-period">2026 — 2027</div>
+      <div class="edu-content">
+        <h3>Especialização em Matemática, Educação e Tecnologia</h3>
+        <p>IFB · Em andamento</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-period">2024 — 2025</div>
+      <div class="edu-content">
+        <h3>Pós-graduação em Engenharia de Software</h3>
+        <p>UTFPR · Concluído</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-period">2021 — 2023</div>
+      <div class="edu-content">
+        <h3>Bacharelado em Ciência da Computação</h3>
+        <p>UNIVEM · Concluído</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICAÇÕES -->
+  <section>
+    <div class="section-label">Certificações & Cursos</div>
+
+    <div class="project">
+      <h3>Certificate of Completion: AI Fluency Framework & Foundations <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· Anthropic</span></h3>
+      <p>Colaboração com sistemas de IA de forma eficaz, eficiente, ética e segura.</p>
+      <div class="tags"><span class="tag">Concluído</span><span class="tag">Inteligência Artificial</span><span class="tag">LLMs</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Data Fundamentals <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· IBM</span></h3>
+      <p>Conceitos, metodologias e ferramentas do ecossistema de dados: análise de dados, ciência de dados, bancos de dados e boas práticas de engenharia de dados. Verificação emitida em fev de 2026.</p>
+      <div class="tags"><span class="tag">Concluído</span><span class="tag">Data Science</span><span class="tag">Banco de Dados</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Python Essentials 1 <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· Cisco Networking Academy</span></h3>
+      <p>Conceitos fundamentais de programação em Python: lógica de programação, estruturas de controle, funções e manipulação de dados. Verificação emitida em dez de 2025.</p>
+      <div class="tags"><span class="tag">Concluído</span><span class="tag">Python</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Python Essentials 2 <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· Cisco Networking Academy</span></h3>
+      <p>Programação em Python do nível fundamental ao intermediário: estruturas de dados, orientação a objetos, boas práticas e desenvolvimento de aplicações com foco em qualidade de código.</p>
+      <div class="tags"><span class="tag">Em andamento</span><span class="tag">Python</span><span class="tag">POO</span></div>
+    </div>
+
+    <div class="project">
+      <h3>JavaScript Essentials 1 <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· Cisco Networking Academy</span></h3>
+      <p>Conceitos fundamentais de programação com JavaScript: lógica de programação, estruturas de controle, funções, manipulação de dados e desenvolvimento de habilidades de codificação para aplicações web.</p>
+      <div class="tags"><span class="tag">Em andamento</span><span class="tag">JavaScript</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Fundamentos de Data Science e Inteligência Artificial <span style="font-size:0.8rem;color:var(--muted);font-weight:300">· Data Science Academy</span></h3>
+      <p>Formação em Data Science e IA com introdução a Python para análise de dados, fundamentos de Machine Learning, pré-processamento de dados e aplicações práticas com modelos preditivos. Cobre Python, Pandas, Machine Learning, Data Science e Inteligência Artificial.</p>
+      <div class="tags"><span class="tag">Em andamento</span><span class="tag">Data Science</span><span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">IA</span></div>
+    </div>
+
+  </section>
+
+  <!-- HABILIDADES -->
+  <section>
+    <div class="section-label">Habilidades</div>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">FastAPI</span>
+      <span class="skill-tag">Django</span>
+      <span class="skill-tag">SQLAlchemy</span>
+      <span class="skill-tag">PostgreSQL</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">SQLite</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">LangChain</span>
+      <span class="skill-tag">LLM</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Inteligência Artificial</span>
+      <span class="skill-tag">API REST</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">TypeScript</span>
+      <span class="skill-tag">HTML5</span>
+      <span class="skill-tag">CSS3</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">Tailwind CSS</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">Jira</span>
+      <span class="skill-tag">Trello</span>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Salesforce</span>
+      <span class="skill-tag">Figma</span>
+      <span class="skill-tag">Postman</span>
+      <span class="skill-tag">Insomnia</span>
+      <span class="skill-tag">Linux</span>
+      <span class="skill-tag">Bubble.io</span>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section>
+    <div class="section-label">Cursos & Certificados</div>
+
+    <div class="project">
+      <h3>Fundamentos de Data Science e Inteligência Artificial</h3>
+      <p>Data Science Academy — Formação em Data Science e IA com introdução a Python para análise de dados, fundamentos de Machine Learning, pré-processamento de dados e aplicações práticas com modelos preditivos.</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Data Science</span><span class="tag">IA</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Data Fundamentals</h3>
+      <p>IBM — Conceitos, metodologias e ferramentas do ecossistema de dados: análise de dados, ciência de dados, bancos de dados e boas práticas de engenharia de dados.</p>
+      <div class="tags">
+        <span class="tag">Dados</span><span class="tag">BI</span><span class="tag">Engenharia de Dados</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Python Essentials 1 e 2</h3>
+      <p>Cisco Networking Academy — Programação em Python do nível fundamental ao intermediário: estruturas de dados, orientação a objetos e boas práticas de desenvolvimento.</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">POO</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>JavaScript Essentials 1</h3>
+      <p>Cisco Networking Academy — Lógica de programação, estruturas de controle, funções e manipulação de dados com JavaScript.</p>
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section>
+    <div class="section-label">Idiomas</div>
+    <div class="lang-list">
+      <div class="lang-item">
+        <h4>Inglês</h4>
+        <p>Intermediário</p>
+      </div>
+      <div class="lang-item">
+        <h4>Espanhol</h4>
+        <p>Básico</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
